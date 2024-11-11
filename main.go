@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"slices"
 
 	"github.com/charmbracelet/huh"
 )
@@ -80,7 +81,7 @@ func yesNoSelectHide(question string, value *bool, allowedUniforms []string) *hu
 			).
 			Value(value),
 	).WithHideFunc(func() bool {
-		return !contains(allowedUniforms, uniformType)
+		return !slices.Contains(allowedUniforms, uniformType)
 	})
 }
 
@@ -107,17 +108,8 @@ func numberSelectHide(question string, value *string, allowedUniforms []string, 
 			}).
 			Value(value),
 	).WithHideFunc(func() bool {
-		return !contains(allowedUniforms, uniformType)
+		return !slices.Contains(allowedUniforms, uniformType)
 	})
-}
-
-func contains[T comparable](slice []T, value T) bool {
-	for _, v := range slice {
-		if v == value {
-			return true
-		}
-	}
-	return false
 }
 
 func main() {
