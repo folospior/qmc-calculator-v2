@@ -93,7 +93,7 @@ func numberSelectHide(question string, value *string, allowedUniforms []string, 
 		huh.NewInput().
 			Title(question).
 			Prompt("? ").
-			Validate(func(str string) error {
+			Validate(func(str string) error { // errors are handled by library
 				var i int
 				_, err := fmt.Sscanf(str, "%d", &i)
 
@@ -134,12 +134,13 @@ func main() {
 		numberSelectHide("How many awards (medals/ribbons) do you wish to have?", &awardsAmountStr, awardsAllowed, 0),
 	)
 
-	err := form.Run()
+	err := form.Run()  // blocking call
 	if err != nil {
 		log.Fatalf("Error while running form: %s", err)
 	}
 
 	// these are already error checked, no issues with error checking
+	// take var1, compare it to var2, feed it into var3
 	fmt.Sscanf(badgesAmountStr, "%d", &badgesAmount)
 	fmt.Sscanf(serviceStripesAmountStr, "%d", &serviceStripesAmount)
 	fmt.Sscanf(extrasAmountStr, "%d", &extrasAmount)
