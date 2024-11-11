@@ -18,10 +18,10 @@ var (
 	extrasAmountStr         string
 	hasRope                 bool
 	awardsAmountStr         string
-	serviceStripesAmount 	int
-	badgesAmount 			int
-	extrasAmount  			int
-	awardsAmount 			int
+	serviceStripesAmount    int
+	badgesAmount            int
+	extrasAmount            int
+	awardsAmount            int
 )
 
 const (
@@ -146,13 +146,14 @@ func main() {
 
 	// these are already error checked, no issues with error checking
 	fmt.Sscanf(badgesAmountStr, "%d", &badgesAmount)
-	fmt.Sscanf(serviceStripesAmountStr, "%d", &serviceStripesAmount)	
+	fmt.Sscanf(serviceStripesAmountStr, "%d", &serviceStripesAmount)
 	fmt.Sscanf(extrasAmountStr, "%d", &extrasAmount)
 	fmt.Sscanf(awardsAmountStr, "%d", &awardsAmount)
 
 	var price int
+
 	switch uniformType {
-	case "mccuu": 
+	case "mccuu":
 		price = mccuuPrice
 	case "dba", "dbb", "dbc", "dbd":
 		price = dressBluesPrice
