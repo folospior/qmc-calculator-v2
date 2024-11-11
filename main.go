@@ -10,19 +10,22 @@ import (
 )
 
 var (
-	uniformType             string
-	hasGloves               bool
-	hasBelt                 bool
+	uniformType string
+
+	hasGloves   bool
+	hasBelt     bool
+	hasRope     bool
+	hasNametape bool
+
 	serviceStripesAmountStr string
-	hasNametape             bool
 	badgesAmountStr         string
 	extrasAmountStr         string
-	hasRope                 bool
 	awardsAmountStr         string
-	serviceStripesAmount    int
-	badgesAmount            int
-	extrasAmount            int
-	awardsAmount            int
+
+	serviceStripesAmount int
+	badgesAmount         int
+	extrasAmount         int
+	awardsAmount         int
 )
 
 const (
